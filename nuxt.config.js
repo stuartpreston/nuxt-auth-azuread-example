@@ -1,69 +1,67 @@
+export default {
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: false,
 
-module.exports = {
-  mode: 'spa',
-  /*
-  ** Headers of the page
-  */
+  // Target: https://go.nuxtjs.dev/config-target
+  target: 'static',
+
+  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'nuxt-auth-azuread-example',
+    htmlAttrs: {
+      lang: 'en'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: '' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: '#fff' },
-  /*
-  ** Global CSS
-  */
+
+  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
-  /*
-  ** Plugins to load before mounting the App
-  */
+
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
-  /*
-  ** Nuxt.js dev-modules
-  */
+
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
+
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
+    // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss'
   ],
-  /*
-  ** Nuxt.js modules
-  */
+
+  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
+    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next'
   ],
+
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
+    baseURL: '/'
+  },
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
+  },
+
   router: {
     middleware: ['auth']
   },
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
-  axios: {
-  },
-  /*
-  ** Build configuration
-  */
-  build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
-  },
+
   auth: {
     redirect: {
       login: '/',
@@ -91,7 +89,7 @@ module.exports = {
         grantType: 'authorization_code',
         accessType: 'offline',
         // ******** change this for your Application (Client) ID ********
-        clientId: '37014aa9-a961-47ce-bb9e-868cba98a0b2',
+        clientId: 'a9b29c46-AAAA-BBBB-CCCC-39cec3a3a765',
         codeChallengeMethod: 'S256',
         scope: ['openid', 'profile'],
         autoLogout: true

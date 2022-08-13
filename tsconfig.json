@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
-    "noImplicitAny": false,
-    "noImplicitThis": false,
-    "target": "ES2020",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
+      "ESNext",
+      "ESNext.AsyncIterable",
+      "DOM"
     ],
     "esModuleInterop": true,
     "allowJs": true,
@@ -23,20 +21,12 @@
       ],
       "@/*": [
         "./*"
-      ],
-      "~~/*": [
-        "./*"
-      ],
-      "@@/*": [
-        "./*"
       ]
     },
     "types": [
-      "@types/node",
       "@nuxt/types",
       "@nuxtjs/axios",
-      "@nuxtjs/auth-next",
-      "jwt-decode/types"
+      "@types/node"
     ]
   },
   "exclude": [
